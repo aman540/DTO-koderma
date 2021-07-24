@@ -1,0 +1,66 @@
+{% extends 'base.html' %} {%load static%} {% block title %}nongear{% endblock title %} {% block body %}
+
+
+<div class="container col-md-6">
+    <!--<img src="https://source.unsplash.com/1400x200/?MONEY" class="d-block mx-0" alt="...">-->
+    <form class="row g-3" method="post" action="/two" id="form2">
+        {%csrf_token%}
+        <div class="col-md-5">
+            <label for="inputname" class="form-label"> FULL NAME</label>
+            <input type="text" class="form-control" id="inputname" name="owner">
+        </div>
+        <div class="col-md-5">
+            <label for="inputregno" class="form-label">VEHICLE REGESTRATION NUMBER</label>
+            <input type="text" class="form-control" id="inputregno" name="regno">
+        </div>
+        </div>
+        </div>
+        {% comment %} <div class="col-md-5"> {% endcomment %}
+            <div class="input-group col-sm-12">
+                <label class="input-group-text" for="inputGroupSelect02">CHALLAN TYPE</label>
+                <select class="form-select" id="inputGroupSelect02" name="chalantype">
+    <option selected>Choose...</option>
+    <option value="100">Tripling on two-wheeler - INR.100/-  Section : 128/177 pf Motor Vehicle Act</option>
+    <option value="500">Vehicle driven by minor (below 18 years of age) -  INR.500/-  Section : 4 r/w</option>
+    <option value="1000">Mobile usage while driving - INR.1000/- Section : 184 of Motor Vehicle Act</option>
+    <option value="10000">Driving under the influence of drugs/alcohol/ any other intoxicating substances - INR.10000/- and/or imprisonment for up to six months
+Section : 185 of Motor Vehicle Act</option>
+    <option value="100">Driving the vehicle with offensive number plates -INR.100/-
+
+Section : CMVR 105 (2) (ii) 177 of the Motor Vehicle Act </option>
+    <option value="4500">Displaying number plate as ‘applied for’ - INR. 4500/-
+Section : 39/192 of Motor Vehicle Act</option>
+    <option value="1000">Jumping signal - INR.1000 and scrapping of license for three months
+
+Section :121 RRR 177 Motor Vehicle Act</option>
+  </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="inputamt" class="form-label"> CHALLAN AMOUNT    (INR)</label>
+            <input type="intezer" class="form-control" id="inputamt" name="amt">
+        </div>
+        </div>
+        {% comment %} <div class="col-md-6">
+            <label for="inputCity" class="form-label">City</label>
+            <input type="text" class="form-control" id="inputCity" name="city">
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">State</label>
+            <select id="inputState" class="form-select" name="state">
+      <option selected>Choose...</option>
+      <option value="JHARKHAND">JHARKHAND</option>
+    </select>
+        </div> {% endcomment %}
+        <div class="col-md-3">
+            <label for="inputZip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="inputZip" name="zip">
+        </div>
+        
+        <br> </br>
+        <div class="input col-sm-12">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </form>
+    <script src=" {% static 'js/two.js' %} "></script>
+    {% endblock body %} 

@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block title %}contact{% endblock title %} {% block body %}
+    <h1 style="text-align:center";>CONTACT US</h1>
+    <form method="post" action="/contact">
+        {%csrf_token%}  
+        <div class="container  col-md-6">
+        <div class="mb-3">
+            <label for="name" class="form-label">NAME</label>
+            <textarea class="form-control" id="name" name="name" rows="1"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="phone" class="form-label">PHONE</label>
+            <textarea class="form-control" id="phone" name="phone" rows="1"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">EMAIL</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        </div>
+        <div class="mb-3">
+            <label for="queries" class="form-label">QUERIES</label>
+            <textarea class="form-control" id="queries" name="queries" rows="3"></textarea>
+        </div>
+        <br></br>
+        <div class="input col-sm-12">
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </form>
+    </div>
+
+    {% endblock body %}

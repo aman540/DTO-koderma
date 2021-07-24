@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %}Apply for DL{% endblock title %} {% block body %}
+
+
+<h1 style="text-align:center;">Apply for DL</h1>
+<div class=" container my-8 px-0">
+    <form method="post" action="/apply">
+        {% csrf_token %}
+        <div class="input">
+            <span class="input-text">Full name</span>
+            <input type="text" aria-label="name" name="name" class="form-control">
+        </div>
+        <div class="input">
+            <span class="input-text">Email</span>
+            <input type="text" aria-label="email" name="email" class="form-control">
+        </div>
+        <div class="input">
+            <span class="input-text ">Phone</span>
+            <input type="text" aria-label="phone" name="phone" class="form-control">
+
+        </div>
+
+        <div class="mb-3 ">
+            <label for="formFile" class="form-label">UID</label>
+            <input class="form-control" type="file" id="formFile">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Vechile Type</label>
+            <select class="form-select" id="inputGroupSelect01" name="vtype">
+     <option selected>Choose...</option>
+     <option value="LMV">LMV</option>
+     <option value="HMV">HMV</option>
+   </select>
+        </div>
+
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect02">Gender</label>
+            <select class="form-select" id="inputGroupSelect02" name="gender">
+     <option selected>Choose...</option>
+     <option value="Male">Male</option>
+     <option value="Female">Female</option>
+   </select>
+
+        </div>
+        <div class="input">
+            <input type="submit" value="Submit">
+        </div>
+</div>
+</form>
+{% endblock body %}
