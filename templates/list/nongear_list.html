@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block title %}nongear-WHEELER RECORDS {% endblock title %} {% block body %} {%load static%}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/w3.css'%}">
+<link rel="stylesheet" href="{% static 'css/reboot.css'%}">
+
+
+<body>
+
+    <div class="container">
+        <img src="{% static 'img/3.png'%}">
+        <form class="d-flex" method="POST" action="{% url 'search_nongear' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search by Vehicle's registration number" aria-label="Search" name="nongearsearch">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    ​
+    <div class="container">
+
+        <div class="w3-container">
+            ​
+            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                <thead>
+                    <tr class="w3-light-grey">
+                        <th>Reg. No</th>
+                        <th>Owner</th>
+                        <th>Challan Type</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                {% for nongear_list in nongear_list %}
+                <tr>
+                    <th>{{nongear_list}}</th>
+                    <td>{{nongear_list.owner}}</td>
+                    <td>{{nongear_list.chalantype}}</td>
+                    <td>{{nongear_list.amt}}</td>
+                </tr>
+                {%endfor%}
+
+            </table>
+        </div>
+        <hr>
+        <table class="w3-right w3-border w3-hoverable">
+            <thead>
+                <tr class="w3-light-grey">
+                    <th>Total Challan Amount</th>
+                </tr>
+            </thead>
+            <tr>
+                <th>{{ns}}</th>
+            </tr>
+
+        </table>
+    </div>
+    ​
+</body>
+{%endblock body%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>
+​

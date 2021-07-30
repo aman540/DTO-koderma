@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {%load static%} {% block title %}fourwheeler{% endblock title %} {% block body %}
+
+
+<!-- <div class="container"> -->
+<!-- <table>
+    <th><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></th>
+    <th>
+        <h2>Four Wheeler</h2>
+    </th>
+</table> -->
+<div class="banner-bottom-icons" style="background:url('static/img/2765.jpg');">
+    <div class="container">
+        <table>
+            <th><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></th>
+            <th>
+                <h2>Four Wheeler</h2>
+            </th>
+        </table>
+        <div class="container  col-md-6">
+            <!-- <div class="container"> -->
+            <!--<img src="https://source.unsplash.com/1400x200/?MONEY" class="d-block mx-0" alt="...">-->
+            <form class="row g-3" method="post" action="/four" id="form1">
+                {%csrf_token%}
+                <!-- <div class="container"> -->
+                <div class="col-mb-3">
+                    <label for="inputname" class="form-label"> Full Name</label>
+                    <input type="text" class="form-control" id="inputname" name="owner">
+                </div>
+                <div class="col-mb-3">
+                    <label for="inputregno" class="form-label">Vehical Registration Number</label>
+                    <input type="text" class="form-control" id="inputregno" name="regno">
+                </div>
+                <div class="col-mb-3">
+                    <label class="input-group-text" for="inputGroupSelect02">Challan type</label>
+                    <br>
+                    <select class="form-select" aria-label="Default select example" id="inputGroupSelect02" name="chalantype">
+                    <option selected>Offence..............</option>
+                    <option value="1000">Driving without seat belts - INR.1000/-</option>
+                    <option value="1000">Hazardous driving or overspeeding - INR.1000/- </option>
+                    <option value="100">Reversing without caution - INR.100/- </option>
+                    <option value="1000">Mobile usage while driving - INR.1000/- </option>
+                    <option value="10000">Driving under the influence of alcohol INR.10000/- </option>
+                    <option value="100">Using offensive number plates -INR.100/- </option>
+                    <option value="4500">Displaying number plate ‘applied for’ - INR. 4500/- </option>
+                    <option value="1000">Jumping signal - INR.1000 </option>
+                    <option value="1000">scrapping of license for three monthst</option>
+                  </select>
+                </div>
+                <div class="col-mb-3">
+                    <label for="inputamt" class="form-label"> Challan Amount(INR)</label>
+                    <input type="intezer" class="form-control" id="inputamt" name="amt">
+
+
+                    <br>
+                    <div class="input col-sm-12">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                    <hr>
+                </div>
+            </form>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src=" {% static 'js/four.js' %} "></script>
+{% endblock body %}

@@ -63,15 +63,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-                <h1><a class="navbar-brand" href="#"><span>DTO </span>KODERMA</a></h1>
+
+                <h1><a class="navbar-brand" href="#"><span style="color: #07685b;">DTO KODERMA</span> </a></h1>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <nav class="link-effect-2" id="link-effect-2">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/"><span data-hover="Home">HOME</span></a></li>
-                        <li><a href="/apply"><span data-hover="REGISTER FOR DL">APPLY FOR DL</span></a></li>
+                        <li class="dropdown">
+                            <a href="/report" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="REPORT">REPORT</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu agile_short_dropdown">
+                                <li><a href="/two_list">TWO WHEELER</a></li>
+                                <li><a href="/four_list">FOUR WHEELER</a></li>
+                                <li><a href="/nongear_list">NON GEARED VEHICLE</a></li>
+                                <li><a href="/all_list">ALL RECORDS</a></li>
+                            </ul>
+                        </li>
                         <li><a href="/contact"><span data-hover="GET TO US">CONTACT US</span></a></li>
+                        <!-- <li><a href="/show_search"><span data-hover="GET TO US">filter</span></a></li> -->
                         <li class="dropdown">
                             <a href="/e-challan" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="E-CHALLAN">E-CHALLAN</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu agile_short_dropdown">
@@ -86,29 +96,98 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="agileinfo-social-grids">
                 <ul>
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    {% load static %}
+                    <li><img src="{%static 'img/6.png'%}"></li>
                 </ul>
             </div>
         </nav>
     </div>
-    {% if messages %} {% for message in messages %}
-    <div class="alert alert-{{ message.tags }}warning alert-dismissible fade show" role="alert">
-        {{ message }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> {% endfor %} {% endif %}
-    </div>
-    {%block body%} {%endblock body%}
 
+    {% if messages %} {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }}warning alert-dismissible show" role="alert">
+        <strong>{{ message }}</strong>.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>{% endfor %} {% endif %}
+    </div>
+    {% block body %} {% endblock body%}
+
+    <div class="w3-agile-footer">
+        <div class="container">
+            <div class="footer-grids">
+                <div class="col-md-3 footer-grid">
+                    <div class="footer-grid-heading">
+                        <h4>Address</h4>
+                    </div>
+                    <div class="footer-grid-info">
+                        <p>Ranchi patna road,
+                            <span>koderma dto office.</span>
+                        </p>
+                        <p class="phone">Phone : xxxxxxxxxx
+                            <span>Email : <a href="mailto:example@email.com">mail@example.com</a></span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-grid">
+                    <div class="footer-grid-heading">
+                        <h4>Navigation</h4>
+                    </div>
+                    <div class="footer-grid-info">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/apply">Apply for DL</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                            <li><a href="/e-challan">E-Challan</a></li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 footer-grid">
+                    <div class="footer-grid-heading">
+                        <h4>Useful Links</h4>
+                    </div>
+                    <div class="footer-grid-info">
+                        <ul>
+                            <li><a href="https://parivahan.gov.in/parivahan/">Apply for DL</a></li>
+                            <li><a href="https://jofs.jhpolice.gov.in/">Register  online FIR</a></li>
+                            <li><a href="https://indianhelpline.com/JHARKHAND/">Emergency Numbers</a></li>
+                            <li><a href="https://gradeup.co/important-days-dates-ssc-railways-exams-i">Important Dates</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 footer-grid">
+                    <div class="footer-grid-heading">
+                        <h4>Twitter Posts<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                        </h4>
+                    </div>
+                    <div class="w3agile_footer_grid_list w3agile-post">
+                        <ul>
+                            <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma DC <a href="https://twitter.com/dckoderma?lang=en">@twitter</a></li>
+                            <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma Police <a href="https://twitter.com/spkoderma1?lang=en">@twitter</a></li>
+                            <li><i class="fa fa-twitter" aria-hidden="true"></i>Jharkhand CMO <a href="https://twitter.com/jharkhandcmo?lang=en">@twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="agileits-w3layouts-copyright">
+                <p>© 2021 DTO KODERMA. All Rights Reserved | Design by @m@n </p>
+            </div>
+        </div>
+    </div>
+
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 
     <!-- //footer -->
 
     <!-- start-smooth-scrolling -->
-    <script type="text/javascript" src="{% static 'js/move-top.js'%}"></script>
-    <script type="text/javascript" src="{% static 'js/easing.js'%}"></script>
-    <script type="text/javascript">
+    <script type="text/javascript " src="{% static 'js/move-top.js'%} "></script>
+    <script type="text/javascript " src="{% static 'js/easing.js'%} "></script>
+    <script type="text/javascript ">
         jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
+            $(".scroll ").click(function(event) {
                 event.preventDefault();
                 $('html,body').animate({
                     scrollTop: $(this.hash).offset().top
@@ -118,10 +197,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!-- start-smooth-scrolling -->
     <!-- for bootstrap working -->
-    <script src="{% static 'js/bootstrap.js'%}"></script>
+    <script src="{% static 'js/bootstrap.js'%} "></script>
     <!-- //for bootstrap working -->
     <!-- here stars scrolling icon -->
-    <script type="text/javascript">
+    <script type="text/javascript ">
         $(document).ready(function() {
             /*
             	var defaults = {
@@ -141,13 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //here ends scrolling icon -->
 </body>
 
-<!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/8.8.0/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-<script src="/__/firebase/8.8.0/firebase-analytics.js"></script>
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
+
 </html>

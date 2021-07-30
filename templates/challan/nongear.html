@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {%load static%} {% block title %}twowheeler{% endblock title %} {% block body %}
+
+<div class="banner-bottom-icons" style="background:url('static/img/2765.jpg');">
+    <div class="container">
+        <table>
+            <th><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></th>
+            <th>
+                <h2>Non-Geared Vehicle</h2>
+            </th>
+        </table>
+        <div class="container  col-md-6">
+            <!-- <div class="container"> -->
+            <!--<img src="https://source.unsplash.com/1400x200/?MONEY" class="d-block mx-0" alt="...">-->
+            <form class="row g-3" method="post" action="/nongear" id="form3">
+                {%csrf_token%}
+                <!-- <div class="container"> -->
+                <div class="col-mb-3">
+                    <label for="inputname" class="form-label"> Full Name</label>
+                    <input type="text" class="form-control" id="inputname" name="owner">
+                </div>
+                <div class="col-mb-3">
+                    <label for="inputregno" class="form-label">Vehical Registration Number</label>
+                    <input type="text" class="form-control" id="inputregno" name="regno">
+                </div>
+                <div class="col-mb-3">
+                    <label class="input-group-text" for="inputGroupSelect02">Challan type</label>
+                    <br>
+                    <select class="form-select" id="inputGroupSelect02" name="chalantype">
+                        <option selected>Offence..............</option>
+                        <option value="100">Tripling on two-wheeler - INR.100/-  </option>
+                        <option value="500">Vehicle driven by minor  -  INR.500/- </option>
+                        <option value="1000">Mobile usage while driving - INR.1000/- </option>
+                        <option value="10000">Driving under the influence of drugs - INR.10000/ </option>
+                        <option value="100">Driving  with offensive number plates -INR.100/-</option>
+                        <option value="4500">Displaying number plate as ‘applied for’ - INR. 4500/-</option>
+                        <option value="1000">Jumping signal - INR.1000  </option>
+                        <option value="1000"> scrapping of license for three months -INR.1000</option> </select>
+                </div>
+                <div class="col-mb-3">
+                    <label for="inputamt" class="form-label"> Challan Amount(INR)</label>
+                    <input type="intezer" class="form-control" id="inputamt" name="amt">
+
+
+                    <br>
+                    <div class="input col-sm-12">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                    <hr>
+                </div>
+            </form>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script src=" {% static 'js/nongear.js' %} "></script>
+{% endblock body %}

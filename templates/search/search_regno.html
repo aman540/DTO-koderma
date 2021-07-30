@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>search regno of nongeared vehicle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        td,
+        th {
+            border: 1px solid #02b420;
+            text-align: left;
+            padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #bccbf7;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="{% static 'img/3.png'%}">
+        <h3>Date filter</h3>
+        <form method="POST">
+            {% csrf_token %} From:
+            <input type='date' name="fromdate" /> To:
+            <input type='date' name="todate" />
+            <input type="submit" value="search" />
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total Challan Amount</h5>
+            <p class="card-text"><strong>{{sum}}</strong></p>
+            <a href="/" class="btn btn-primary">HOME</a>
+        </div>
+        ​
+        <div class="container">
+            {% load static %}
+            <!--<img src="{% static 'img/3.png'%}"-->
+            <div class="w3-container">
+                ​
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <thead>
+                        <tr class="w3-light-grey">
+                            <th>Date</th>
+                            <th>Reg. No</th>
+                            <th>Owner</th>
+                            <th>Challan Type</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    {%for result in displaydata1 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%} {%for result in displaydata2 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%}{%for result in displaydata3 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>

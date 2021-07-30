@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" href="{% static 'inout/fonts/icomoon/style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'inout/css/owl.carousel.min.css'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'inout/css/bootstrap.min.css'%}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'inout/css/style.css'%}">
+
+    <title>SignUp | DTO KOD</title>
+</head>
+
+<body>
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    {% load static %}
+                    <img src="{% static 'inout/images/Birsa_Munda.jpg'%}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <div class="mb-3">
+                                <h3>Sign Up</h3>
+                                <!--  <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>-->
+                            </div>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <div class="input-group mb-3">
+                                    <div class="input-group-append">
+
+                                    </div>
+                                    {{form.username}}
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-append">
+
+                                    </div>
+                                    {{form.email}}
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-append">
+
+                                    </div>
+                                    {{form.password1}}
+                                </div>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-append">
+
+                                    </div>
+                                    {{form.password2}}
+                                    <!-- <div class="d-flex mb-5 align-items-center">
+                                        <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                  <input type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div> -->
+                                    </label>
+                                </div>
+
+                                <input type="submit" value="Sign Up" class="btn btn-block btn-primary"> {{form.errors}}
+                                <div class="mt-4">
+                                    <div class="d-flex justify-content-center links">
+                                        Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a>
+                                    </div>
+                                </div>
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
+                                                                                                                                                                                                                                                                            		//We start indexing at one because CSRF_token is considered and input field 
+                                                                                                                                                                                                                                                                            		 */
+
+        //Query All input fields
+        var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder = 'Username..';
+        form_fields[2].placeholder = 'Email..';
+        form_fields[3].placeholder = 'Enter password...';
+        form_fields[4].placeholder = 'Re-enter Password...';
+
+
+        for (var field in form_fields) {
+            form_fields[field].className += ' form-control'
+        }
+    </script>
+    <script src="{% static 'inout/js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'inout/js/popper.min.js'%}"></script>
+    <script src="{% static 'inout/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'inout/js/main.js'%}"></script>
+</body>
+
+</html>

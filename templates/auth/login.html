@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> {% load static %}
+    <link rel="stylesheet" href="{% static 'inout/fonts/icomoon/style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'inout/css/owl.carousel.min.css'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'inout/css/bootstrap.min.css'%}">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'inout/css/style.css'%}">
+
+    <title>Login | DTO KOD </title>
+</head>
+
+<body>
+
+
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    {% load static %}
+                    <img src="{% static 'inout/images/gov_logo.jpeg'%}" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h2>Log In</h2>
+                                {% for message in messages %}
+                                <p id="messages">{{message}}</p>
+                                {% endfor %}
+
+                            </div>
+                            <form method="POST" action="">
+                                {% csrf_token %}
+                                <div class="form-group first">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" class="form-control">
+                                    <!--<input type="text" class="form-control" id="username">-->
+
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password">Password</label>
+                                    <!--<input type="password" class="form-control" id="password">-->
+                                    <input type="password" name="password" class="form-control">
+
+                                </div>
+
+                                <div class="d-flex mb-5 align-items-center">
+                                    <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
+                  <input type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div>
+                </label>
+                                    <!-- <span class="ml-auto"><a href="#" class="forgot-pass">Forgot Password</a></span>  -->
+                                </div>
+
+                                <input type="submit" value="Log In" class="btn btn-block btn-primary">
+
+
+
+
+                            </form>
+                        </div>
+
+                        <div class="mt-4">
+                            <div class="d-flex justify-content-center links">
+                                Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'inout/js/jquery-3.3.1.min.js'%}"></script>
+    <script src="{% static 'inout/js/popper.min.js'%}"></script>
+    <script src="{% static 'inout/js/bootstrap.min.js'%}"></script>
+    <script src="{% static 'inout/js/main.js'%}"></script>
+</body>
+
+</html>

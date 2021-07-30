@@ -1,0 +1,87 @@
+ {% extends 'base.html' %} {%load static%} {% block title %}FOUR-WHEELER RECORDS {% endblock title %} {% block body %}
+<!--DOCTYPE html>
+<html>
+<title>four search</title>
+{% load static %}-->
+
+<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'css/w3.css'%}">
+<link rel="stylesheet" href="{% static 'css/reboot.css'%}">
+
+
+<body>
+    <!--nav class="navbar navbar-dark bg-dark"-->
+
+    <!--a class="btn btn-primary" href="/" role="button">HOME</a-->
+
+    <div class="container">
+        <img src="{% static 'img/3.png'%}">
+        <h3>Date filter</h3>
+        <form method="POST">
+            {% csrf_token %} From:
+            <input type='date' name="fromdate" /> To:
+            <input type='date' name="todate" />
+            <input type="submit" value="search" />
+    </div>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Total Challan Amount</h5>
+            <p class="card-text"><strong>{{sum}}</strong></p>
+            <a href="/" class="btn btn-primary">HOME</a>
+        </div>
+        ​
+        <div class="container">
+            {% load static %}
+            <!--<img src="{% static 'img/3.png'%}"-->
+            <div class="w3-container">
+                ​
+                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
+                    <thead>
+                        <tr class="w3-light-grey">
+                            <th>Date</th>
+                            <th>Reg. No</th>
+                            <th>Owner</th>
+                            <th>Challan Type</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    {%for result in displaydata1 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%} {%for result in displaydata2 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%}{%for result in displaydata3 %}
+                    <tr>
+                        <th>{{result.date}}</th>
+                        <td>{{result.regno}}</td>
+                        <td>{{result.owner}}</td>
+                        <td>{{result.chalantype}}</td>
+                        <td>{{result.amt}}</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            </div>
+        </div>
+
+
+        ​
+</body>
+{%endblock%}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</html>
+​ ​

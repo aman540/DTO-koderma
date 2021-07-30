@@ -1,38 +1,41 @@
  {% extends 'base.html' %} {% block title %}HOME{% endblock title %} {% block body %}
-<div class="banner">
-    <div class="container">
-        <section class="slider">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <div class="agileits_w3layouts_banner_info">
-                            <h3>Welcome to DTO KODERMA Portal.</h3>
-                            <p>we enable the offical to register the vehical owner for driving licence and collect challans digitally.</p>
-                            <div class="agileits_w3layouts_banner_info_pos">
-                                <ul>
-                                    <li><a href="https://koderma.nic.in/">Know About Koderma</a><label></label></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
+<div class="container">
+    <div class="banner" style="background:url('static/img/2765.jpg');">
 
-                        <div class="agileits_w3layouts_banner_info">
-                            <h3>DIGITAL INDIA</h3>
-                            <p> MAKING INDIA digital.</p>
-                            <div class="agileits_w3layouts_banner_info_pos">
-                                <ul>
-                                    <li><a href="https://twitter.com/_digitalindia">Twitter</a><label></label></li>
-                                    <li><a href="https://www.instagram.com/OfficialDigitalIndia/">Instagram</a><label></label></li>
-                                    <li><a href="https://www.facebook.com/OfficialDigitalIndia/">Facebook</a><label></label></li>
-                                    <div class="clearfix"> </div>
-                                </ul>
+        <div class="container">
+            <section class="slider">
+                <div class="flexslider">
+                    <ul class="slides">
+                        <li>
+                            <div class="agileits_w3layouts_banner_info">
+                                <h3 style="color: #0c0c0c;">Welcome to DTO KODERMA Portal.</h3>
+                                <div class="agileits_w3layouts_banner_info_pos">
+                                    <ul>
+                                        <li style="color: #0c0c0c;"><a href="https://koderma.nic.in/" style="color: #0c0c0c;"><strong>Know About Koderma</strong></a><label></label></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
+                        </li>
+                        <li>
+
+                            <div class="agileits_w3layouts_banner_info">
+                                <h3 style="color: #0c0c0c;">DIGITAL INDIA</h3>
+                                <p style="color: #0c0c0c;"> MAKING INDIA digital.</p>
+                                <div class="agileits_w3layouts_banner_info_pos">
+                                    <ul>
+                                        <li><a href="https://twitter.com/_digitalindia" style="color: #0c0c0c;">Twitter</a><label></label></li>
+                                        <li><a href="https://www.instagram.com/OfficialDigitalIndia/" style="color: #0c0c0c;">Instagram</a><label></label></li>
+                                        <li><a href="https://www.facebook.com/OfficialDigitalIndia/" style="color: #0c0c0c;">Facebook</a><label></label></li>
+                                        <div class="clearfix"> </div>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
 
         <!-- flexSlider -->{% load static%}
         <script defer src="{% static 'js/jquery.flexslider.js'%}"></script>
@@ -50,6 +53,9 @@
 
     </div>
 </div>
+<hr>
+<br>
+
 <!-- //banner -->
 <!-- banner-bottom-icons -->
 <div class="banner-bottom-icons">
@@ -59,7 +65,7 @@
         </div>
         <div class="col-md-4 w3_banner_bottom_icons_left hover15">
             <div class="w3_agile_banner_bottom">
-                <figure><img src="{% static 'images/3.jpg'%}" alt=" " class="img-responsive" /></figure>
+                <figure><img src="{% static 'img/1.jpg'%}" alt=" " class="img-responsive" /></figure>
             </div>
         </div>
         <div class="col-md-8 w3_banner_bottom_icons_right">
@@ -67,14 +73,16 @@
                 <div class="w3_banner_bottom_icons1_effect">
                     <i class="fa-car"></i>
                     <h3>Apply For Driving License</h3>
-                    <p>Hear we register your details and then we will sent you a link to the portal with instruction.</p>
+                    <li><a href="https://sarathi.parivahan.gov.in">Apply Here</a></li>
+                    <p></p>
                 </div>
             </div>
             <div class="col-xs-6 w3_banner_bottom_icons1">
                 <div class="w3_banner_bottom_icons1_effect">
                     <i class="fa-bell"></i>
                     <h3>E-Challan</h3>
-                    <p>It is a platform that enables us to collect the sum for government official against twowheeler,fourwheeler and non geared vehicles and maintain records in goverment database .</p>
+                    <li><a href="https://echallan.parivahan.gov.in">E-challan</a></li>
+                    <p></p>
                 </div>
             </div>
             <div class="clearfix"> </div>
@@ -85,58 +93,4 @@
 
 
 
-
-
-
-<div class="w3-agile-footer">
-    <div class="container">
-        <div class="footer-grids">
-            <div class="col-md-3 footer-grid">
-                <div class="footer-grid-heading">
-                    <h4>Address</h4>
-                </div>
-                <div class="footer-grid-info">
-                    <p>Ranchi patna road,
-                        <span>koderma dto office.</span>
-                    </p>
-                    <p class="phone">Phone : xxxxxxxxxx
-                        <span>Email : <a href="mailto:example@email.com">mail@example.com</a></span>
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3 footer-grid">
-                <div class="footer-grid-heading">
-                    <h4>Navigation</h4>
-                </div>
-                <div class="footer-grid-info">
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/apply">Apply for DL</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                        <li><a href="/e-challan">E-Challan</a></li>
-                        <li><a href="/logout">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="col-md-3 footer-grid">
-                <div class="footer-grid-heading">
-                    <h4>Twitter Posts</h4>
-                </div>
-                <div class="w3agile_footer_grid_list w3agile-post">
-                    <ul>
-                        <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma DC <a href="https://twitter.com/dckoderma?lang=en">@twitter</a>
-
-                            <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma Police <a href="https://twitter.com/spkoderma1?lang=en">@twitter</a>
-                                <span><i class="fa fa-twitter" aria-hidden="true"></i></span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="clearfix"> </div>
-        </div>
-        <div class="agileits-w3layouts-copyright">
-            <p>© 2021 DTO KODERMA. All Rights Reserved | Design by Aman & Aditya </p>
-        </div>
-    </div>
-</div>
 {% endblock body %}
