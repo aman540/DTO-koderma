@@ -1,9 +1,3 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +31,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //font-awesome-icons -->
 
     <link href="//fonts.googleapis.com/css?family=Prompt:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
+
 </head>
 
 <body>
@@ -45,7 +40,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
     <div id="cd-search" class="cd-search">
-        <form action="#" method="post">
+        <form action="" method="post">
             <input name="Search" type="search" placeholder="Search...">
         </form>
     </div>
@@ -64,45 +59,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<span class="icon-bar"></span>
 				</button>
 
-                <h1><a class="navbar-brand" href="#"><span style="color: #07685b;">DTO KODERMA</span> </a></h1>
+                <h1><span style=" color: #098541;font-family: 'Lucida Console', Courier, monospace;">DTO KODERMA</span></h1>
+
+            </div>
+            <div class="agileinfo-social-grids">
+                <ul>
+                    {% load static %}
+
+                    <li><span id='time'></span></li>
+                    <li><img src="{%static 'img/6.png'%}"></li>
+                </ul>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <nav class="link-effect-2" id="link-effect-2">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/"><span data-hover="Home">HOME</span></a></li>
+                        <li class="active"><a href="/"><span data-hover="Home" style="color: hsl(172, 87%, 22%);"><strong>HOME</strong></span></a></li>
+                        <li class="dropdown"> {% if request.user.is_staff%}
+                            <a href="/e-challan" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="E-CHALLAN" style="color: #07685b;">E-CHALLAN</span> <b class="caret"></b></a>
+                            <ul class="dropdown-menu agile_short_dropdown">
+                                <li><a href="/two">TWO WHEELER</a></li>
+                                <li><a href="/four">FOUR WHEELER</a></li>
+                                <li><a href="/nongear">NON GEARED VEHICLE</a></li>
+                            </ul>
+                        </li> {%endif%}
                         <li class="dropdown">
-                            <a href="/report" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="REPORT">REPORT</span> <b class="caret"></b></a>
+                            {% if request.user.is_staff%}
+                            <a href="/report" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="REPORT" style="color: hsl(172, 87%, 22%);">REPORT</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu agile_short_dropdown">
                                 <li><a href="/two_list">TWO WHEELER</a></li>
                                 <li><a href="/four_list">FOUR WHEELER</a></li>
                                 <li><a href="/nongear_list">NON GEARED VEHICLE</a></li>
                                 <li><a href="/all_list">ALL RECORDS</a></li>
                             </ul>
-                        </li>
-                        <li><a href="/contact"><span data-hover="GET TO US">CONTACT US</span></a></li>
-                        <!-- <li><a href="/show_search"><span data-hover="GET TO US">filter</span></a></li> -->
+                            {%endif%}
+                        </li>{% if request.user.is_staff%}
                         <li class="dropdown">
-                            <a href="/e-challan" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="E-CHALLAN">E-CHALLAN</span> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="CHECK-NAKA" style="color: hsl(172, 87%, 22%);">CHECK-NAKA</span> <b class="caret"></b></a>
                             <ul class="dropdown-menu agile_short_dropdown">
-                                <li><a href="/two">TWO WHEELER</a></li>
-                                <li><a href="/four">FOUR WHEELER</a></li>
-                                <li><a href="/nongear">NON GEARED VEHICLE</a></li>
+                                <li><a href="/checknama">CHALLAN ENRTY</a></li>
+                                <li><a href="/check_list"> CHALLAN RECORDS</a></li>
                             </ul>
                         </li>
-                        <li><a href="/logout"><span data-hover="LOGOUT">LOGOUT</span></a></li>
+                        {%endif%}{% if request.user.is_staff%}
+                        <li><a href="/contact"><span data-hover="GET TO US" style="color: hsl(172, 87%, 22%);">CONTACT US</span></a></li>{%endif%}
+                        <li><a href="/grievance"><span data-hover="COMPLAIN" style="color: hsl(172, 87%, 22%);">GRIEVANCE</span></a></li>
+                        <li><a href="/sop"><span data-hover="SOP" style="color: hsl(172, 87%, 22%);">SOP</span></a></li>
+                        <li><a href="/logout"><span data-hover="LOGOUT" style="color: hsl(172, 87%, 22%);">LOGOUT</span></a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="agileinfo-social-grids">
-                <ul>
-                    {% load static %}
-                    <li><img src="{%static 'img/6.png'%}"></li>
-                </ul>
-            </div>
+
         </nav>
     </div>
-
     {% if messages %} {% for message in messages %}
 
     <div class="alert alert-{{ message.tags }}warning alert-dismissible show" role="alert">
@@ -122,7 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="footer-grid-info">
                         <p>Ranchi patna road,
-                            <span>koderma dto office.</span>
+                            <span>Koderma DTO Office.</span>
                         </p>
                         <p class="phone">Phone : xxxxxxxxxx
                             <span>Email : <a href="mailto:example@email.com">mail@example.com</a></span>
@@ -136,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="footer-grid-info">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="/apply">Apply for DL</a></li>
+
                             <li><a href="/contact">Contact</a></li>
                             <li><a href="/e-challan">E-Challan</a></li>
                             <li><a href="/logout">Logout</a></li>
@@ -151,21 +160,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <ul>
                             <li><a href="https://parivahan.gov.in/parivahan/">Apply for DL</a></li>
                             <li><a href="https://jofs.jhpolice.gov.in/">Register  online FIR</a></li>
-                            <li><a href="https://indianhelpline.com/JHARKHAND/">Emergency Numbers</a></li>
-                            <li><a href="https://gradeup.co/important-days-dates-ssc-railways-exams-i">Important Dates</a></li>
+                            <li><a href="https://jharbhoomi.nic.in/jhrlrmsmis/">Land Records</a></li>
+                            <li><a href="https://echallan.jhpolice.gov.in/">Jharkhand e-challan</a></li>
                         </ul>
                     </div>
                 </div>
-
                 <div class="col-md-3 footer-grid">
                     <div class="footer-grid-heading">
-                        <h4>Twitter Posts<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+                        <h4>Twitter Post<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
                         </h4>
                     </div>
                     <div class="w3agile_footer_grid_list w3agile-post">
                         <ul>
                             <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma DC <a href="https://twitter.com/dckoderma?lang=en">@twitter</a></li>
-                            <li><i class="fa fa-twitter" aria-hidden="true"></i>Koderma Police <a href="https://twitter.com/spkoderma1?lang=en">@twitter</a></li>
                             <li><i class="fa fa-twitter" aria-hidden="true"></i>Jharkhand CMO <a href="https://twitter.com/jharkhandcmo?lang=en">@twitter</a></li>
                         </ul>
                     </div>
@@ -173,11 +180,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"> </div>
             </div>
             <div class="agileits-w3layouts-copyright">
-                <p>© 2021 DTO KODERMA. All Rights Reserved | Design by @m@n </p>
+                <p>© 2021 DTO KODERMA. All Rights Reserved | Designed by Aditya & Aman </p>
             </div>
         </div>
     </div>
-
+    </div>
+    <script>
+        setInterval(() => {
+            a = new Date();
+            let time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds()
+            document.getElementById('time').innerHTML = time;
+        }, 1000);
+    </script>
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js " integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM " crossorigin="anonymous "></script>
 
     <!-- //footer -->
@@ -210,7 +224,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             	easingType: 'linear' 
             	};
             */
-
             $().UItoTop({
                 easingType: 'easeOutQuart'
             });
@@ -219,8 +232,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!-- //here ends scrolling icon -->
 </body>
-
-
-
 
 </html>

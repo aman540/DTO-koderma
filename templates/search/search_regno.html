@@ -1,92 +1,85 @@
-<!DOCTYPE html>
+ {% extends 'base.html' %} {%load static%} {% block title %}All Records {% endblock title %} {% block body %}
 
-<html>
-
-<head>
-    <title>search regno of nongeared vehicle</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        td,
-        th {
-            border: 1px solid #02b420;
-            text-align: left;
-            padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #bccbf7;
-        }
-    </style>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #02b420;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #bccbf7;
+    }
+</style>
 </head>
 
 <body>
     <div class="container">
-        <img src="{% static 'img/3.png'%}">
-        <h3>Date filter</h3>
-        <form method="POST">
-            {% csrf_token %} From:
-            <input type='date' name="fromdate" /> To:
-            <input type='date' name="todate" />
-            <input type="submit" value="search" />
-    </div>
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Total Challan Amount</h5>
-            <p class="card-text"><strong>{{sum}}</strong></p>
-            <a href="/" class="btn btn-primary">HOME</a>
-        </div>
-        ​
-        <div class="container">
-            {% load static %}
-            <!--<img src="{% static 'img/3.png'%}"-->
-            <div class="w3-container">
-                ​
-                <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
-                    <thead>
-                        <tr class="w3-light-grey">
-                            <th>Date</th>
-                            <th>Reg. No</th>
-                            <th>Owner</th>
-                            <th>Challan Type</th>
-                            <th>Amount</th>
-                        </tr>
-                    </thead>
-                    {%for result in displaydata1 %}
-                    <tr>
-                        <th>{{result.date}}</th>
-                        <td>{{result.regno}}</td>
-                        <td>{{result.owner}}</td>
-                        <td>{{result.chalantype}}</td>
-                        <td>{{result.amt}}</td>
-                    </tr>
-                    {%endfor%} {%for result in displaydata2 %}
-                    <tr>
-                        <th>{{result.date}}</th>
-                        <td>{{result.regno}}</td>
-                        <td>{{result.owner}}</td>
-                        <td>{{result.chalantype}}</td>
-                        <td>{{result.amt}}</td>
-                    </tr>
-                    {%endfor%}{%for result in displaydata3 %}
-                    <tr>
-                        <th>{{result.date}}</th>
-                        <td>{{result.regno}}</td>
-                        <td>{{result.owner}}</td>
-                        <td>{{result.chalantype}}</td>
-                        <td>{{result.amt}}</td>
-                    </tr>
-                    {%endfor%}
-                </table>
+        <div class="container  col-md-3">
+            <div class="mb-3">
+                <form class="d-flex" method="POST" action="{% url 'search_regno' %}">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search by Vehicle's registration number" aria-label="Search" name="searched">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
+    </div>
 
+    <hr>
+    <div class="container">
+        <h4>Your search results for {{searched}} are -</h4>
+    </div>
+    <hr>
+    <div class="container">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Reg. NO</th>
+                <th>Owner</th>
+                <th>Challan Type</th>
+                <th>Amount</th>
+            </tr>
+            {% if searched %} {% for search in search_list1 %}
+            <tr>
+                <td>{{search.date}}</th>
+                    <td> {{search}}</td>
+                    <td>{{search.owner}}</td>
+                    <td>{{search.chalantype}}</td>
+                    <td>{{search.amt}}</td>
+            </tr>
+            {%endfor%} {% for search in search_list2 %}
+            <tr>
+                <td>{{search.date}}</th>
+                    <td> {{search}}</td>
+                    <td>{{search.owner}}</td>
+                    <td>{{search.chalantype}}</td>
+                    <td>{{search.amt}}</td>
+            </tr>
+            {%endfor%} {% for search in search_list3 %}
+            <tr>
+                <td>{{search.date}}</th>
+                    <td> {{search}}</td>
+                    <td>{{search.owner}}</td>
+                    <td>{{search.chalantype}}</td>
+                    <td>{{search.amt}}</td>
+            </tr>
+            {%endfor%}{% else %}
+            <h4>You have entered a invalid regestration number of two wheeler vehicle</h4>
+            {%endif%}
+
+        </table>
+    </div>
+    <hr>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{%endblock body%}
 
 </html>

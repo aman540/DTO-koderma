@@ -1,0 +1,210 @@
+ {% extends 'base.html' %} {% block title %}HOME{% endblock title %} {% block body %}
+<style>
+    .card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+    
+    div.scrollmenu {
+        background-color: rgb(252, 247, 247);
+        overflow: auto;
+        white-space: nowrap;
+        min-height: 40%;
+    }
+    
+    .card {
+        display: inline-block;
+        color: rgb(20, 20, 20);
+        text-align: center;
+        padding: 10px;
+        text-decoration: none;
+        transition: 0.3s;
+        width: 30vw;
+        overflow: hidden
+    }
+    
+    div.scrollmenu .card:hover {
+        background-color: rgb(226, 247, 233);
+    }
+    /* p {
+        display: ruby-text;
+        width: 30vw;
+      
+    } */
+</style>
+
+<style>
+    #ClockContainer {
+        position: relative;
+        margin: auto;
+        height: 40vw;
+        width: 40vw;
+        background: url(static/img/clock.png) no-repeat;
+        background-size: 100%;
+    }
+    
+    #hour,
+    #minute,
+    #second {
+        position: absolute;
+        background: black;
+        border-radius: 10px;
+        transform-origin: bottom;
+    }
+    
+    #hour {
+        width: 1.8%;
+        height: 25%;
+        top: 25%;
+        left: 48.85%;
+        opacity: 0.8;
+    }
+    
+    #minute {
+        width: 1.6%;
+        height: 30%;
+        top: 19%;
+        left: 48.9%;
+        opacity: 0.8;
+    }
+    
+    #second {
+        width: 1%;
+        height: 40%;
+        top: 9%;
+        left: 49.25%;
+        opacity: 0.8;
+    }
+</style>
+
+<div class="banner" style="background:url('static/img/jh.jpg'); background-repeat: round;">
+
+    {% comment %}
+    <div class="container"> {% endcomment %}
+        <section class="slider">
+            <div class="flexslider">
+                <ul class="slides">
+                    <li>
+                        <div class="agileits_w3layouts_banner_info">
+                            <h3 style="color: #eed6d6;"> KODERMA DTO PORTAL</h3>
+                            <div class="agileits_w3layouts_banner_info_pos">
+                                <ul>
+                                    <li style="color: #f5e7e7;"><a href="https://koderma.nic.in/" style="color: #f3e9e9;"><strong>Know About Koderma</strong></a><label></label></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+
+                        <div class="agileits_w3layouts_banner_info">
+                            <h3 style="color: #eed6d6;">DIGITAL INDIA</h3>
+                            <p style="color: #f3e2e2;"> MAKING INDIA digital.</p>
+                            <div class="agileits_w3layouts_banner_info_pos">
+                                <ul>
+                                    <li><a href="https://twitter.com/_digitalindia" style="color: #e3def1;">Twitter</a><label></label></li>
+                                    <li><a href="https://www.instagram.com/OfficialDigitalIndia/" style="color: #e3def1;">Instagram</a><label></label></li>
+                                    <li><a href="https://www.facebook.com/OfficialDigitalIndia/" style="color: #e3def1;">Facebook</a><label></label></li>
+                                    <div class="clearfix"> </div>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- flexSlider -->{% load static%}
+    <script defer src="{% static 'js/jquery.flexslider.js'%}"></script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                start: function(slider) {
+                    $('body').removeClass('loading');
+                }
+            });
+        });
+    </script>
+    <!-- //flexSlider -->
+
+</div>
+</div>
+<hr>
+<br>
+
+<!-- //banner -->
+<!-- banner-bottom-icons -->
+<div class="banner-bottom-icons">
+    <div class="container">
+        <div class="w3l-heading">
+            <h2 class="w3ls_head">Our Services </h2>
+        </div>
+        <div class="col-md-4 w3_banner_bottom_icons_left hover15">
+            <div class="w3_agile_banner_bottom">
+                <figure><img src="{% static 'img/dc.jpeg'%}" alt=" " class="img-responsive" /></figure>
+            </div>
+        </div>
+        <div class="col-md-8 w3_banner_bottom_icons_right">
+            <div class="col-xs-6 w3_banner_bottom_icons1">
+                <div class="w3_banner_bottom_icons1_effect">
+                    <i class="fa-car"></i>
+                    <h3>Apply For Driving License</h3>
+                    <li><a href="https://sarathi.parivahan.gov.in">Apply Here</a></li>
+                    <p></p>
+                </div>
+            </div>
+            <div class="col-xs-6 w3_banner_bottom_icons1">
+                <div class="w3_banner_bottom_icons1_effect">
+                    <i class="fa-bell"></i>
+                    <h3>E-Challan</h3>
+                    <li><a href="https://echallan.parivahan.gov.in">E-challan</a></li>
+                    <p></p>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+
+<!-- news -->
+<div class="scrollmenu">
+
+    {% for i in articles%}
+    <div class="card">
+        <img src="{{i.urlToImage}}" alt="Avatar" style="  display: block;
+        width: 30vw;
+        height: 40vh;
+        object-fit: contain; ">
+
+        <p style="  object-fit:fill;">{{i.title}}</p>
+
+        <button style="color: rgb(47, 156, 37);background: black; background-color: rgb(223, 236, 229);; "><a href="{{i.url}} ">Read More</a></button>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="ClockContainer">
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="second"></div>
+</div>
+
+<script>
+    setInterval(() => {
+        d = new Date();
+        htime = d.getHours();
+        mtime = d.getMinutes();
+        stime = d.getSeconds();
+        hrotation = 30 * htime + mtime / 2;
+        mrotation = 6 * mtime;
+        srotation = 6 * stime;
+
+        hour.style.transform = `rotate(${hrotation}deg)`;
+        minute.style.transform = `rotate(${mrotation}deg)`;
+        second.style.transform = `rotate(${srotation}deg)`;
+
+    }, 1000);
+</script>
+{% endblock body %}

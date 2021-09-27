@@ -1,63 +1,68 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>search regno of nongeared vehicle</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        td,
-        th {
-            border: 1px solid #02b420;
-            text-align: left;
-            padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-            background-color: #bccbf7;
-        }
-    </style>
+{% extends 'base.html' %} {%load static%} {% block title %}All Records {% endblock title %} {% block body %}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    td,
+    th {
+        border: 1px solid #02b420;
+        text-align: left;
+        padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+        background-color: #bccbf7;
+    }
+</style>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="btn btn-primary" href="/" role="button">HOME</a>
+    <div class="container">
+        <div class="container  col-md-3">
+            <div class="mb-3">
+                <form class="d-flex" method="POST" action="{% url 'search_nongear' %}">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search by Vehicle's registration number" aria-label="Search" name="nongearsearch">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
         </div>
-    </nav>
+    </div>
+
     <hr>
     <div class="container">
         <h4>Your search results for {{nongearsearch}} are-</h4>
     </div>
     <hr>
-    <table>
-        <tr>
-            <th>Date</th>
-            <th>Reg. NO</th>
-            <th>Owner</th>
-            <th>Challan Type</th>
-            <th>Amount</th>
-        </tr>
-        {% if nongearsearch %} {% for search in search_list5 %}
-        <tr>
-            <td>{{search.date}}</th>
-                <td> {{search}}</td>
-                <td>{{search.owner}}</td>
-                <td>{{search.chalantype}}</td>
-                <td>{{search.amt}}</td>
-        </tr>
-        {%endfor%}{% else %}
-        <h4>you have entered a invalid regestration number of non-geared vehical</h4>
-        {%endif%}
+    <div class="container">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Reg. NO</th>
+                <th>Owner</th>
+                <th>Challan Type</th>
+                <th>Amount</th>
+            </tr>
+            {% if nongearsearch %} {% for search in search_list5 %}
+            <tr>
+                <td>{{search.date}}</th>
+                    <td> {{search}}</td>
+                    <td>{{search.owner}}</td>
+                    <td>{{search.chalantype}}</td>
+                    <td>{{search.amt}}</td>
+            </tr>
+            {%endfor%}{% else %}
+            <h4>you have entered a invalid regestration number of non geared vehical</h4>
+            {%endif%}
 
-    </table>
-
+        </table>
+    </div>
+    <hr>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+{%endblock body%}
 
 </html>

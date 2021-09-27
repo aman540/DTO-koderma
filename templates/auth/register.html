@@ -17,6 +17,31 @@
     <link rel="stylesheet" href="{% static 'inout/css/style.css'%}">
 
     <title>SignUp | DTO KOD</title>
+    <style>
+        .content .contents .form-control,
+        .content .bg .form-control {
+            border: none;
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 2px;
+        }
+        
+        .content a {
+            color: #338952;
+            text-decoration: underline;
+        }
+        
+        body {
+            margin: 0;
+            font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #338952;
+            text-align: left;
+            background-color: #ffffff;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,18 +53,19 @@
             <div class="row">
                 <div class="col-md-6">
                     {% load static %}
-                    <img src="{% static 'inout/images/Birsa_Munda.jpg'%}" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/signup.jpg'%}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <div class="mb-3">
                                 <h3>Sign Up</h3>
-                                <!--  <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p>-->
+
                             </div>
                             <form method="POST" action="">
                                 {% csrf_token %}
                                 <div class="input-group mb-3">
+
                                     <div class="input-group-append">
 
                                     </div>
@@ -62,10 +88,7 @@
 
                                     </div>
                                     {{form.password2}}
-                                    <!-- <div class="d-flex mb-5 align-items-center">
-                                        <label class="control control--checkbox mb-0"><span class="caption">Remember me</span>
-                  <input type="checkbox" checked="checked"/>
-                  <div class="control__indicator"></div> -->
+
                                     </label>
                                 </div>
 
@@ -88,15 +111,15 @@
 
     <script>
         /* Because i didnt set placeholder values in forms.py they will be set here using vanilla Javascript
-                                                                                                                                                                                                                                                                            		//We start indexing at one because CSRF_token is considered and input field 
-                                                                                                                                                                                                                                                                            		 */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    		//We start indexing at one because CSRF_token is considered and input field 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    		 */
 
         //Query All input fields
         var form_fields = document.getElementsByTagName('input')
         form_fields[1].placeholder = 'Username..';
-        form_fields[2].placeholder = 'Email..';
-        form_fields[3].placeholder = 'Enter password...';
-        form_fields[4].placeholder = 'Re-enter Password...';
+        form_fields[2].placeholder = 'E-mail..';
+        form_fields[3].placeholder = 'Password..';
+        form_fields[4].placeholder = 'Re-enter password..';
 
 
         for (var field in form_fields) {

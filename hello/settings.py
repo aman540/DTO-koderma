@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from django.contrib.messages import constants as messages
 from pathlib import Path
 
+from django.core.mail.message import EmailMessage
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-f99$&ae+-3umi5*-nc2h=c42*z-v36xiyj#_&##(+s7)ou%k+n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aman.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -122,14 +125,21 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # added manully
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     
+    
 ]
+MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        div.scrollmenu {
+            background-color: rgb(252, 247, 247);
+            overflow: auto;
+            white-space: nowrap;
+            min-height: 40%;
+        }
+        
+        .card {
+            display: inline-block;
+            color: rgb(20, 20, 20);
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            transition: 0.3s;
+            width: 30vw;
+        }
+        
+        div.scrollmenu .card:hover {
+            background-color: rgb(226, 247, 233);
+        }
+        /* p {
+            display: ruby-text;
+            width: 30vw;
+          
+        } */
+    </style>
+</head>
+
+<body>
+
+    <div class="scrollmenu">
+
+        {% for i in articles%}
+        <div class="card">
+            <img src="{{i.urlToImage}}" alt="Avatar" style="  display: block;
+            width: 30vw;
+            height: 40vh;
+            object-fit: contain; ">
+
+            <p style="  object-fit:fill;">{{i.title}}</p>
+
+            <button style="color: rgb(47, 156, 37);background: black; background-color: rgb(223, 236, 229);; "><a href="{{i.url}} ">Read More</a></button>
+        </div>
+        {% endfor %}
+    </div>
+
+
+
+</body>
+
+</html>

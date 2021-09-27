@@ -1,88 +1,110 @@
-{% extends 'base.html' %} {%load static%} {% block title %}All Records {% endblock title %} {% block body %}
-<!--<!DOCTYPE html>
-<html>
-<title>All_list</title>-->
-<!--{% load static %}-->
+ ​ {% extends 'base.html' %} {%load static%} {% block title %}All_lists | {% endblock title %} {% block body %}
 
-<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{% static 'css/w3.css'%}">
-<link rel="stylesheet" href="{% static 'css/reboot.css'%}">
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+</head>
 
 <body>
-
     <div class="container">
-        <img src="{% static 'img/3.png'%}">
-        <h3>Date filter</h3>
-        <form method="POST">
-            {% csrf_token %} From:
-            <input type='date' name="fromdate" /> To:
-            <input type='date' name="todate" />
-            <input type="submit" value="search" />
+        <table id="customers">
+            <!-- <td style="border: 0px #f5dcda">
+            <img src="{% static 'img/3.png'%}"></td> -->
+            <td style="border: 0px #f5dcda">
+                <h3>Search By Date</h3>
+                <form method="POST">
+
+                    {% csrf_token %} From:
+                    <input type='date' name="fromdate" /> To:
+                    <input type='date' name="todate" />
+                    <input type="submit" value="search" /></form>
+            </td>
+
+        </table>
     </div>
-    ​
     <div class="container">
+        <table id="customers">
+            <tr>
+                <form class="d-flex" method="POST" action="{% url 'search_regno' %}">
+                    {% csrf_token %}
+                    <th><input class="form-control me-2" type="search" placeholder="Search by Vehicle's registration number" aria-label="Search" name="searched"></th>
+                    <th style="width:40px;"> <button class="btn btn-outline-success" type="submit" style="background-color: #04AA6D; color: white;">Search</button></th>
+                </form>
+            </tr>
+        </table>
 
-        {% load static %}
-        <!--<img src="{% static 'img/3.png'%}"-->
-        <div class="w3-container">
-            ​
-            <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable">
-                <thead>
-                    <tr class="w3-light-grey">
-                        <th>Date</th>
-                        <th>Reg. No</th>
-                        <th>Owner</th>
-                        <th>Challan Type</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                {%for result in displaydata1 %}
-                <tr>
-                    <th>{{result.date}}</th>
-                    <td>{{result.regno}}</td>
-                    <td>{{result.owner}}</td>
-                    <td>{{result.chalantype}}</td>
-                    <td>{{result.amt}}</td>
-                </tr>
-                {%endfor%} {%for result in displaydata2 %}
-                <tr>
-                    <th>{{result.date}}</th>
-                    <td>{{result.regno}}</td>
-                    <td>{{result.owner}}</td>
-                    <td>{{result.chalantype}}</td>
-                    <td>{{result.amt}}</td>
-                </tr>
-                {%endfor%}{%for result in displaydata3 %}
-                <tr>
-                    <th>{{result.date}}</th>
-                    <td>{{result.regno}}</td>
-                    <td>{{result.owner}}</td>
-                    <td>{{result.chalantype}}</td>
-                    <td>{{result.amt}}</td>
-                </tr>
-                {%endfor%}
-            </table>
-        </div>
+
+        <table id="customers">
+            <tr>
+                <th>Date</th>
+                <th>Reg. NO</th>
+                <th>Owner</th>
+                <th>Challan Type</th>
+                <th>Amount</th>
+            </tr>
+
+            {%for result in displaydata1 %}
+            <tr>
+                <td>{{result.date}}</td>
+                <td>{{result.regno}}</td>
+                <td>{{result.owner}}</td>
+                <td>{{result.chalantype}}</td>
+                <td>{{result.amt}}</td>
+            </tr>
+            {%endfor%} {%for result in displaydata2 %}
+            <tr>
+                <td>{{result.date}}</td>
+                <td>{{result.regno}}</td>
+                <td>{{result.owner}}</td>
+                <td>{{result.chalantype}}</td>
+                <td>{{result.amt}}</td>
+            </tr>
+            {%endfor%}{%for result in displaydata3 %}
+            <tr>
+                <td>{{result.date}}</td>
+                <td>{{result.regno}}</td>
+                <td>{{result.owner}}</td>
+                <td>{{result.chalantype}}</td>
+                <td>{{result.amt}}</td>
+            </tr>
+            {%endfor%}
+        </table>
         <hr>
-        <div class="container">
-            <table class="w3-right w3-border w3-hoverable">
-                <thead>
-                    <tr class="w3-light-grey">
-                        <th>Total Challan Amount</th>
-                    </tr>
-                </thead>
-                <tr>
-                    <th>{{sum}}</th>
-                </tr>
-
-            </table>
-        </div>
+        <table id="customers">
+            <tr>
+                <th>Total Challan Amount</th>
+                <th>{{sum}} {{sum1}}</th>
+            </tr>
+        </table>
     </div>
-    <hr> {%endblock%}
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <hr> {%endblock body%}
 
     </html>
-    ​
+    ​​ ​ ​ ​ ​

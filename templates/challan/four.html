@@ -1,27 +1,75 @@
 {% extends 'base.html' %} {%load static%} {% block title %}fourwheeler{% endblock title %} {% block body %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+    }
+    /* Style the header */
+    
+    .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Style the top navigation bar */
+    
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    /* Style the topnav links */
+    
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Change color on hover */
+    
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    /* Create three equal columns that floats next to each other */
+    
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 15px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width:600px) {
+        .column {
+            width: 100%;
+        }
+    }
+</style>
+</head>
 
+<body>
+    <div class="row">
+        <div class="column">
+            <img src="{% static 'img/44.png'%}" alt=" " class="img-responsive" />
 
-<!-- <div class="container"> -->
-<!-- <table>
-    <th><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></th>
-    <th>
-        <h2>Four Wheeler</h2>
-    </th>
-</table> -->
-<div class="banner-bottom-icons" style="background:url('static/img/2765.jpg');">
-    <div class="container">
-        <table>
-            <th><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></th>
-            <th>
-                <h2>Four Wheeler</h2>
-            </th>
-        </table>
-        <div class="container  col-md-6">
-            <!-- <div class="container"> -->
-            <!--<img src="https://source.unsplash.com/1400x200/?MONEY" class="d-block mx-0" alt="...">-->
+        </div>
+
+        <div class="column">
             <form class="row g-3" method="post" action="/four" id="form1">
                 {%csrf_token%}
-                <!-- <div class="container"> -->
                 <div class="col-mb-3">
                     <label for="inputname" class="form-label"> Full Name</label>
                     <input type="text" class="form-control" id="inputname" name="owner">
@@ -31,10 +79,10 @@
                     <input type="text" class="form-control" id="inputregno" name="regno">
                 </div>
                 <div class="col-mb-3">
-                    <label class="input-group-text" for="inputGroupSelect02">Challan type</label>
+                    <label class="input-group-text" for="inputGroupSelect02" style="width: fit-content;">Challan type</label>
                     <br>
                     <select class="form-select" aria-label="Default select example" id="inputGroupSelect02" name="chalantype">
-                    <option selected>Offence..............</option>
+                    <option selected style="word-wrap: break-word;">Offence..............</option>
                     <option value="1000">Driving without seat belts - INR.1000/-</option>
                     <option value="1000">Hazardous driving or overspeeding - INR.1000/- </option>
                     <option value="100">Reversing without caution - INR.100/- </option>
@@ -61,8 +109,13 @@
             </form>
         </div>
     </div>
-</div>
+    </div>
+    </div>
 
+    <div class="column">
 
-<script src=" {% static 'js/four.js' %} "></script>
-{% endblock body %}
+    </div>
+    </div>
+
+    <script src=" {% static 'js/four.js' %} "></script>
+    {% endblock body %}

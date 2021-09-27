@@ -1,0 +1,90 @@
+ ​ ​ ​ {% extends 'base.html' %} {%load static%} {% block title %}checknama_lists | {% endblock title %} {% block body %}
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
+</head>
+
+<body>
+    <table id="customers">
+        <td style="border: 0px #f5dcda">
+            <img src="{% static 'img/3.png'%}"></td>
+        <td style="border: 0px #f5dcda">
+
+            <form method="POST">
+                <h3>Search By Date</h3>
+                {% csrf_token %} From:
+                <input type='date' name="fromdate" /> To:
+                <input type='date' name="todate" />
+                <input type="submit" value="search" /></form>
+        </td>
+
+    </table>
+    <table id="customers">
+        <tr>
+            <form class="d-flex" method="POST" action="{% url 'search_checknama' %}">
+                {% csrf_token %}
+                <th> <input class="form-control me-2" type="search" placeholder="Search by Vehicle's registration number" aria-label="Search" name="checknamasearch"></th>
+                <th style="width:40px;"> <button class="btn btn-outline-success" type="submit" style="background-color: #04AA6D; color: white;">Search</button></th>
+            </form>
+        </tr>
+    </table>
+
+
+    <table id="customers">
+        <tr>
+            <th>Date</th>
+            <th>Reg. No</th>
+            <th>Name</th>
+            <th>Vehical Type</th>
+            <th>Challan No</th>
+        </tr>
+
+        {%for result in checks_lists %}
+        <tr>
+            <td>{{result.date}}</td>
+            <td>{{result.regno}}</td>
+            <td>{{result.name}}</td>
+            <td>{{result.vt}}</td>
+            <td>{{result.chalanno}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <hr>
+    <table id="customers">
+        <tr>
+            <th>Total Vehical Passed</th>
+            <th>{{forloop.counter}}</th>
+        </tr>
+    </table>
+
+    <hr> {%endblock body%}
+
+    </html>
+    ​​ ​ ​ ​ ​ ​

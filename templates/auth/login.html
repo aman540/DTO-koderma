@@ -6,28 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet"> {% load static %}
     <link rel="stylesheet" href="{% static 'inout/fonts/icomoon/style.css'%}">
-
     <link rel="stylesheet" href="{% static 'inout/css/owl.carousel.min.css'%}">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'inout/css/bootstrap.min.css'%}">
-
     <!-- Style -->
     <link rel="stylesheet" href="{% static 'inout/css/style.css'%}">
-
     <title>Login | DTO KOD </title>
 </head>
 
 <body>
-
-
-
     <div class="content">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     {% load static %}
-                    <img src="{% static 'inout/images/gov_logo.jpeg'%}" alt="Image" class="img-fluid">
+                    <img src="{% static 'img/login.png'%}" alt="Image" class="img-fluid">
                 </div>
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
@@ -63,23 +56,15 @@
                                 </div>
 
                                 <input type="submit" value="Log In" class="btn btn-block btn-primary">
-
-
-
-
                             </form>
                         </div>
-
                         <div class="mt-4">
                             <div class="d-flex justify-content-center links">
                                 Don't have an account? <a href="{% url 'register' %}" class="ml-2">Sign Up</a>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>

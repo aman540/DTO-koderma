@@ -1,44 +1,100 @@
 {% extends 'base.html' %} {% block title %}contact{% endblock title %} {% block body %}
-<form method="post" action="/contact">
-    {%csrf_token%} {% load static %}
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        margin: 0;
+    }
+    /* Style the header */
+    
+    .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Style the top navigation bar */
+    
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    /* Style the topnav links */
+    
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Change color on hover */
+    
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    /* Create three equal columns that floats next to each other */
+    
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 15px;
+    }
+    /* Clear floats after the columns */
+    
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    
+    @media screen and (max-width:600px) {
+        .column {
+            width: 100%;
+        }
+    }
+</style>
 
-    <div class="banner-bottom-icons" style="background:url('static/img/2765.jpg');">
-        <div class="container">
-            <table>
-                <tr><img src="{% static 'img/3.png'%}" alt=" " class="img-responsive" /></tr>
-                <tr>
-                    <h3>CONTACT US</h3>
-                </tr>
-            </table>
+<body>
+    <div class="row">
+        <div class="column">
+            {% load static %}
+            <img src="{% static 'img/contact.png'%}" alt=" " class="img-responsive" />
         </div>
-        <div class="row">
-            <div class="container">
-                <div class="container  col-md-6">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">NAME</label>
-                        <textarea class="form-control" id="name" name="name" rows="1"></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">PHONE</label>
-                        <textarea class="form-control" id="phone" name="phone" rows="1"></textarea>
-                    </div>
+        <form method="post" action="/contact">
+            {%csrf_token%} {% load static %}
+            <div class="row">
+                <div class="container">
+                    <div class="container  col-md-6">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">NAME</label>
+                            <textarea class="form-control" id="name" name="name" rows="1"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">PHONE</label>
+                            <textarea class="form-control" id="phone" name="phone" rows="1"></textarea>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="email" class="form-label">EMAIL</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">EMAIL</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="queries" class="form-label">QUERIES</label>
+                            <textarea class="form-control" id="queries" name="queries" rows="3"></textarea>
+                        </div>
+                        <br></br>
+                        <div class="input col-sm-12,mb-3">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                        </div>
+                        <hr>
                     </div>
-                    <div class="mb-3">
-                        <label for="queries" class="form-label">QUERIES</label>
-                        <textarea class="form-control" id="queries" name="queries" rows="3"></textarea>
-                    </div>
-                    <br></br>
-                    <div class="input col-sm-12,mb-3">
-                        <input type="submit" class="btn btn-primary" value="Submit">
-                    </div>
-                    <hr>
                 </div>
             </div>
-        </div>
     </div>
-</form>
-{% endblock body %}
+    </form>
+    {% endblock body %}

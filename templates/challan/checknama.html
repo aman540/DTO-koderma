@@ -1,0 +1,106 @@
+
+{% extends 'base.html' %} {% block title %}contact{% endblock title %} {% block body %}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+<body>
+<div class="row">
+  <div class="column">
+  {% load static %}
+  <img src="{% static 'img/truck.png'%}" alt=" " class="img-responsive"/>
+  </div>
+<form method="post" action="/checknama">
+    {%csrf_token%} {% load static %}
+
+        <div class="row">
+            <div class="container">
+                <div class="container  col-md-6">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <textarea class="form-control" id="name" name="name" rows="1"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="regno" class="form-label">Registration Number</label>
+                       <input class="form-control"  id="formFile" name="regno">
+                    </div>
+<br>
+                    <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Vechile Type</label>
+            <select class="form-select" id="inputGroupSelect01" name="vt">
+     <option selected>Choose...</option>
+     <option value="HGMV">HGMV</option>
+     <option value="HPMV">HPMV</option>
+   </select>
+        </div>
+                    <div class="mb-3">
+                        <label for="regno" class="form-label">Challan Number</label>
+                       <input class="form-control" type="integer" id="formFile" name="chalanno">
+                    </div>
+                    <br></br>
+                    <div class="input col-sm-12,mb-3">
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% comment %} <a class="btn btn-primary" href="/check_list" role="button">record</a> {% endcomment %}
+{% endblock body %}
